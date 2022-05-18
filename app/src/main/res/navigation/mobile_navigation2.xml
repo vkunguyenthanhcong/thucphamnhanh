@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.ntc.thcphmnhanh.ui.home.HomeFragment"
+        android:label="Trang chủ"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.ntc.thcphmnhanh.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.ntc.thcphmnhanh.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_admin"
+        android:name="com.ntc.thcphmnhanh.ui.admin.AdminFragment"
+        android:label="Admin Quản Lý"
+        tools:layout="@layout/fragment_admin" />
+    <fragment
+        android:id="@+id/nav_cart"
+        android:name="com.ntc.thcphmnhanh.ui.cart.GioHangFragment"
+        android:label="Giỏ hàng"
+        tools:layout="@layout/fragment_gio_hang" />
+    <fragment
+        android:id="@+id/nav_xacnhan"
+        android:name="com.ntc.thcphmnhanh.ui.cart.XacNhanDonHang"
+        android:label="Xác nhận đơn hàng"
+        tools:layout="@layout/fragment_xac_nhan_don_hang" />
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.ntc.thcphmnhanh.ui.Logout.LogoutFragment"
+        android:label="Đăng xuất"
+        tools:layout="@layout/fragment_logout" />
+</navigation>

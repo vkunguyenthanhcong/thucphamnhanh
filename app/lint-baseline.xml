@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 7.1.2" type="baseline" client="gradle" dependencies="false" name="AGP (7.1.2)" variant="fatal" version="7.1.2">
+
+    <issue
+        id="NotSibling"
+        message="`@+id/giasp` is not a sibling in the same `ConstraintLayout`"
+        errorLine1="            app:layout_constraintTop_toBottomOf=&quot;@+id/giasp&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_chi_tiet_san_pham.xml"
+            line="46"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="NotSibling"
+        message="`@id/txtgioitinh` is not a sibling in the same `ConstraintLayout`"
+        errorLine1="                app:layout_constraintTop_toBottomOf=&quot;@id/txtgioitinh&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_slideshow.xml"
+            line="123"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="NotSibling"
+        message="`@id/txtgioitinh` is not a sibling in the same `ConstraintLayout`"
+        errorLine1="                app:layout_constraintTop_toBottomOf=&quot;@id/txtgioitinh&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_slideshow.xml"
+            line="131"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as \&#xA;a value for `size` in the scrolling direction."
+        errorLine1="        recyclerView.setHasFixedSize(true)"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/ntc/thcphmnhanh/thucpham/ListThucPham.kt"
+            line="29"
+            column="9"/>
+    </issue>
+
+</issues>
