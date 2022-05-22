@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.firestore.auth.User
 import com.ntc.thcphmnhanh.R
 import com.ntc.thcphmnhanh.thucpham.ThucPham
-import com.ntc.thcphmnhanh.ui.admin.UserData
+import com.ntc.thcphmnhanh.ui.admin.SanPham
+import com.ntc.thcphmnhanh.ui.admin.User
 import com.squareup.picasso.Picasso
 
-class UserAdapter(private val userList: ArrayList<UserData>) : RecyclerView.Adapter<UserAdapter.MyViewHolder>(){
+class UserAdapter(private val userList: ArrayList<User>) : RecyclerView.Adapter<UserAdapter.MyViewHolder>(){
 
     private lateinit var mListener : onItemClickListener
 
@@ -30,13 +30,10 @@ class UserAdapter(private val userList: ArrayList<UserData>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: UserAdapter.MyViewHolder, position: Int) {
-        val user : UserData = userList[position]
-        holder.nameuser.text = user.hoten
-        holder.email.text = user.email
-        var imageurl = user.link
-        var imageview = holder.image
-
-        Picasso.get().load(imageurl).placeholder(R.drawable.loading).error(R.drawable.loading).fit().into(imageview)
+        val data : User = userList[position]
+        holder.text1.text = data.hoten
+        holder.text2.text = data.email
+        Picasso.get().load(data.link).placeholder(R.drawable.user).error(R.drawable.user).fit().into(holder.anh)
     }
 
     override fun getItemCount(): Int {
@@ -44,9 +41,10 @@ class UserAdapter(private val userList: ArrayList<UserData>) : RecyclerView.Adap
     }
 
     public class MyViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView){
-        val image : ImageView = itemView.findViewById(R.id.imageuser)
-        val nameuser : TextView = itemView.findViewById(R.id.nameuser)
-        val email : TextView = itemView.findViewById(R.id.emailuser)
+        val anh : ImageView = itemView.findViewById(R.id.imageu)
+        val text1 : TextView = itemView.findViewById(R.id.nameuser)
+        val text2 : TextView = itemView.findViewById(R.id.emailuser)
+
         init {
             itemView.setOnClickListener {
                 listener.onItemClick(adapterPosition)

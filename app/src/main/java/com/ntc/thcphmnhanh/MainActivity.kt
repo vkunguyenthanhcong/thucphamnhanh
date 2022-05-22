@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
                     if (document.data?.getValue("permission").toString() == "user"){
                         val nav_menu : Menu =  navView.getMenu()
                         nav_menu.findItem(R.id.nav_admin).isVisible = false
+                        nav_menu.findItem(R.id.nav_xacnhan).isVisible = false
+                        nav_menu.findItem(R.id.nav_themsp).isVisible = false
                     }
                 }
             }
@@ -58,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_admin, R.id.nav_cart, R.id.nav_donhang, R.id.xacnhan
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

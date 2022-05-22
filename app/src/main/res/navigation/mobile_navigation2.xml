@@ -33,10 +33,20 @@
         android:label="Giỏ hàng"
         tools:layout="@layout/fragment_gio_hang" />
     <fragment
+        android:id="@+id/nav_donhang"
+        android:name="com.ntc.thcphmnhanh.ui.donhang.DonHangFragment"
+        android:label="Đơn hàng"
+        tools:layout="@layout/fragment_don_hang" />
+    <fragment
         android:id="@+id/nav_xacnhan"
-        android:name="com.ntc.thcphmnhanh.ui.cart.XacNhanDonHang"
+        android:name="com.ntc.thcphmnhanh.ui.xacnhan.FragmentXacNhan"
         android:label="Xác nhận đơn hàng"
-        tools:layout="@layout/fragment_xac_nhan_don_hang" />
+        tools:layout="@layout/fragment_xac_nhan" />
+    <fragment
+        android:id="@+id/nav_themsp"
+        android:name="com.ntc.thcphmnhanh.ui.themsanpham.FragmentThemSanPham"
+        android:label="Xác nhận đơn hàng"
+        tools:layout="@layout/fragment_them_san_pham" />
     <fragment
         android:id="@+id/nav_logout"
         android:name="com.ntc.thcphmnhanh.ui.Logout.LogoutFragment"

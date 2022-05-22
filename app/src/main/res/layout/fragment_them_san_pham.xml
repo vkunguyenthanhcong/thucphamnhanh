@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#e6ffee"
+    android:padding="10dp"
+    tools:context=".ui.themsanpham.FragmentThemSanPham">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hình ảnh sản phẩm"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:id="@+id/txthinhanh"
+            android:padding="10dp"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            app:layout_constraintTop_toBottomOf="@id/txthinhanh"
+            android:id="@+id/hinhanh"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên sản phẩm (KG / CÁI)"
+            android:textSize="15dp"
+            android:id="@+id/txttensp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/hinhanh"
+            android:layout_marginTop="10dp"
+            tools:ignore="MissingConstraints" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tensp"
+            android:hint="Tên sản phẩm"
+            android:background="@drawable/khung_edittext_1"
+            app:layout_constraintTop_toBottomOf="@id/txttensp"
+            android:elevation="5dp"
+            android:layout_marginTop="5dp"
+            tools:ignore="MissingConstraints" />'
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtmota"
+            android:text="Mô tả"
+            app:layout_constraintTop_toBottomOf="@id/tensp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/motasp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/khung_edittext_1"
+            android:hint="Mô tả"
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:maxLines="10"
+            android:minLines="6"
+            android:scrollbars="vertical"
+            app:layout_constraintTop_toBottomOf="@id/txtmota"
+            tools:ignore="MissingConstraints"
+            android:elevation="5dp"
+            tools:layout_editor_absoluteX="0dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Giá sản phẩm (VNĐ)"
+            android:id="@+id/txtgiasp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintTop_toBottomOf="@id/motasp"
+            android:layout_marginTop="5dp"
+            tools:ignore="MissingConstraints" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/giasp"
+            app:layout_constraintTop_toBottomOf="@id/txtgiasp"
+            android:layout_marginTop="5dp"
+            android:hint="10000"
+            android:elevation="5dp"
+            android:background="@drawable/khung_edittext_1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/danhsach"
+            app:layout_constraintTop_toBottomOf="@id/giasp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:text="Danh mục sản phẩm"
+            android:textSize="15dp"
+            tools:ignore="MissingConstraints" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/main2"
+            app:layout_constraintTop_toBottomOf="@id/danhsach"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thực phẩm"
+                android:id="@+id/thucpham"
+                tools:ignore="MissingConstraints" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thực ăn nhanh"
+                app:layout_constraintStart_toEndOf="@id/thucpham"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/thucannhanh"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main3"
+            app:layout_constraintTop_toBottomOf="@id/main2"
+            android:layout_marginTop="5dp"
+            tools:ignore="MissingConstraints">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtloaisp"
+                android:text="Loại sản phẩm"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:id="@+id/loaisp"
+                android:spinnerMode="dropdown"
+                app:layout_constraintTop_toBottomOf="@id/txtloaisp"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/submit"
+            android:textAllCaps="false"
+            android:text="Thêm Sản Phẩm"
+            app:layout_constraintTop_toBottomOf="@id/main3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/botron_button"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
+    android:background="#b3ffcc"
     tools:context=".ui.slideshow.SlideshowFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,6 +51,8 @@
             tools:ignore="MissingConstraints" />
 
         <EditText
+            android:background="@drawable/khung_edittext_1"
+            android:elevation="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="  Họ và tên"
@@ -70,6 +73,8 @@
             android:layout_marginTop="20dp"
             tools:ignore="MissingConstraints" />
         <EditText
+            android:background="@drawable/khung_edittext_1"
+            android:elevation="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="  Địa chỉ"
@@ -100,6 +105,8 @@
             android:layout_marginTop="20dp"
             tools:ignore="MissingConstraints" />
         <EditText
+            android:background="@drawable/khung_edittext_1"
+            android:elevation="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="  0912.xxx.xxx"
@@ -111,6 +118,7 @@
             app:layout_constraintEnd_toEndOf="parent"/>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/gioitinh"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/txtgioitinh"

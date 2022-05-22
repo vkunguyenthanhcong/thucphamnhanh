@@ -18,9 +18,11 @@
             android:src="@drawable/ic_launcher_background" />
         <TextView
             android:id="@+id/textf"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tên món"
+            android:background="#b3ffcc"
+            android:textColor="@color/black"
             android:textAlignment="center"
             tools:layout_editor_absoluteX="0dp" />
     </LinearLayout>

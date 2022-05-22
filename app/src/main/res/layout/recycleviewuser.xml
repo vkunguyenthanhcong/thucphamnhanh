@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imageuser"
+            android:id="@+id/imageu"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_launcher_background"
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:text="Họ và tên"
             android:textAlignment="center"
-            app:layout_constraintStart_toEndOf="@id/imageuser"
+            app:layout_constraintStart_toEndOf="@id/imageu"
             android:layout_marginLeft="10dp"
             tools:ignore="MissingConstraints" />
         <TextView
@@ -31,7 +31,7 @@
             android:id="@+id/emailuser"
             android:text="Email"
             android:layout_marginLeft="10dp"
-            app:layout_constraintStart_toEndOf="@id/imageuser"
+            app:layout_constraintStart_toEndOf="@id/imageu"
             app:layout_constraintTop_toBottomOf="@+id/nameuser"
             android:layout_marginTop="10dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

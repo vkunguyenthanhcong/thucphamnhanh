@@ -33,12 +33,8 @@ import com.squareup.picasso.Picasso
 class AdminFragment : Fragment() {
     private var _binding: FragmentAdminBinding? = null
 
-    private lateinit var userBTN : Button
-    private lateinit var spBTN : Button
     //user
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var userArrayList: ArrayList<UserData>
-    private lateinit var userAdapter: UserAdapter
+    private lateinit var recyclerview: RecyclerView
     //sản phẩm
     private lateinit var nrecyclerView: RecyclerView
     private lateinit var spArrayList: ArrayList<SanPham>
@@ -63,15 +59,8 @@ class AdminFragment : Fragment() {
 
         val user = Firebase.auth.currentUser
         val uid = user?.uid
+        sanphamshow()
 
-        userBTN = binding.btnuser
-        userBTN.setOnClickListener {
-            usershow()
-        }
-        spBTN = binding.btnsp
-        spBTN.setOnClickListener {
-            sanphamshow()
-        }
         return root
     }
 
@@ -79,27 +68,7 @@ class AdminFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-    private fun usershow(){
-        recyclerView = binding.user
 
-        val linearLayoutManager = LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
-        recyclerView.layoutManager = linearLayoutManager
-
-        userArrayList = arrayListOf()
-        userAdapter = UserAdapter(userArrayList)
-
-        recyclerView.adapter = userAdapter
-
-        nEventChangeListener()
-        userAdapter.setOnItemClickListener(object : UserAdapter.onItemClickListener{
-            override fun onItemClick(position: Int) {
-                val intent = Intent(context, ChiTietSanPham::class.java)
-                intent.putExtra("id", userArrayList[position].id)
-                startActivity(intent)
-            }
-
-        })
-    }
     private fun sanphamshow(){
         nrecyclerView = binding.sp
 
@@ -111,7 +80,7 @@ class AdminFragment : Fragment() {
 
         nrecyclerView.adapter = spAdapter
 
-        EventChangeListener()
+        nEventChangeListener()
         spAdapter.setOnItemClickListener(object : SanPhamAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
                 val intent = Intent(context, MainActivity::class.java)
@@ -122,24 +91,6 @@ class AdminFragment : Fragment() {
         })
     }
     private fun nEventChangeListener(){
-        db = FirebaseFirestore.getInstance()
-        db.collection("users").addSnapshotListener(object : EventListener<QuerySnapshot> {
-            override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-                if (error != null){
-                    Log.e("Firestore Error", error.message.toString())
-                    return
-                }
-                for (dc : DocumentChange in value?.documentChanges!!){
-                    if (dc.type == DocumentChange.Type.ADDED){
-                        userArrayList.add(dc.document.toObject(UserData::class.java))
-                    }
-                }
-                userAdapter.notifyDataSetChanged()
-            }
-
-        })
-    }
-    private fun EventChangeListener(){
         db = FirebaseFirestore.getInstance()
         db.collection("danhsach").addSnapshotListener(object : EventListener<QuerySnapshot> {
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
@@ -157,4 +108,5 @@ class AdminFragment : Fragment() {
 
         })
     }
+
 }

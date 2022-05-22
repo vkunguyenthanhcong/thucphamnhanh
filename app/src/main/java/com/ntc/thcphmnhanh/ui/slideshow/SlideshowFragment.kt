@@ -24,6 +24,7 @@ import com.google.firebase.storage.StorageReference
 import com.ntc.thcphmnhanh.MainActivity
 import com.ntc.thcphmnhanh.R
 import com.ntc.thcphmnhanh.databinding.FragmentSlideshowBinding
+import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 import java.io.IOException
 import java.util.*
@@ -60,13 +61,11 @@ class SlideshowFragment : Fragment() {
 
         val user = Firebase.auth.currentUser
 
-        val name = user?.displayName
         val photoUrl = user?.photoUrl
         val uid = user?.uid
 
         val imageView: CircleImageView = binding.avatar
-
-        Glide.with(this).load(photoUrl).into(imageView)
+        Picasso.get().load(photoUrl).placeholder(R.drawable.user).error(R.drawable.user).into(imageView)
 
         imageView.setOnClickListener {
             launchGallery()

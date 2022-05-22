@@ -18,6 +18,7 @@ import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import com.ntc.thcphmnhanh.databinding.ActivityAdminXacNhanDonHangBinding
 import com.ntc.thcphmnhanh.databinding.ActivityXacNhanDonHang2Binding
 import com.ntc.thcphmnhanh.databinding.FragmentGioHangBinding
 import com.ntc.thcphmnhanh.home.GioHangAdapter
@@ -26,13 +27,13 @@ import com.ntc.thcphmnhanh.ui.cart.GioHangFragment
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.delay as delay1
 
-class XacNhanDonHang : AppCompatActivity() {
+class AdminXacNhanDonHang : AppCompatActivity() {
     private lateinit var dbref : DatabaseReference
-    private lateinit var binding: ActivityXacNhanDonHang2Binding
+    private lateinit var binding: ActivityAdminXacNhanDonHangBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityXacNhanDonHang2Binding.inflate(layoutInflater)
+        binding = ActivityAdminXacNhanDonHangBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
         val idcart : String = intent.getStringExtra("idcart").toString()
@@ -57,6 +58,9 @@ class XacNhanDonHang : AppCompatActivity() {
                     }else if (tinhtrang == "Đã đặt hàng"){
                         binding.tinhtrang.setText("Đã đặt hàng")
                         binding.tinhtrang.setTextColor(Color.parseColor("#32cd32"))
+                    }else if (tinhtrang == "Đã gửi hàng"){
+                        binding.tinhtrang.setText("Đã gửi hàng")
+                        binding.tinhtrang.setTextColor(Color.parseColor("#32cd32"))
                     }
                     binding.tongtien.setText(tongtien.toString())
                     binding.giatien.setText(tongtien.toString())
@@ -67,40 +71,36 @@ class XacNhanDonHang : AppCompatActivity() {
                     val db = FirebaseFirestore.getInstance()
                     val docRef = db.collection("users").document(uid!!)
                     docRef.get().addOnSuccessListener { document ->
-                            val txtdiachi : String = document.data?.getValue("diachi").toString()
-                            binding.diachi.setText(txtdiachi)
-                            val txtsodienthoai : String = document.data?.getValue("sodienthoai").toString()
-                            binding.sodienthoai.setText(txtsodienthoai)
+                        val txtdiachi : String = document.data?.getValue("diachi").toString()
+                        binding.diachi.setText(txtdiachi)
+                        val txtsodienthoai : String = document.data?.getValue("sodienthoai").toString()
+                        binding.sodienthoai.setText(txtsodienthoai)
                     }
                     binding.huy.setOnClickListener {
 
                         val database = Firebase.database.reference
-                            database.child("cart").child(idcart).removeValue().addOnCompleteListener {
-                                    val mediaPlayer = MediaPlayer.create(applicationContext, R.raw.ting)
-                                    mediaPlayer.start()
-                                    Toast.makeText(applicationContext, "Hủy thành công", Toast.LENGTH_SHORT).show()
-                                    Handler().postDelayed({
-                                        val intent = Intent(applicationContext, GioHangFragment::class.java)
-                                        startActivity(intent)
-                                    }, 1000)
+                        database.child("cart").child(idcart).removeValue().addOnCompleteListener {
+                            val mediaPlayer = MediaPlayer.create(applicationContext, R.raw.ting)
+                            mediaPlayer.start()
+                            Toast.makeText(applicationContext, "Hủy thành công", Toast.LENGTH_SHORT).show()
+                            Handler().postDelayed({
+                                val intent = Intent(applicationContext, GioHangFragment::class.java)
+                                startActivity(intent)
+                            }, 1000)
 
 
-                            }
+                        }
                     }
-                    binding.muahang.setOnClickListener {
-                        val diachi : String = binding.diachi.text.toString()
-                        val sodienthoai : String = binding.sodienthoai.text.toString()
+                    binding.guihang.setOnClickListener {
                         dbref = FirebaseDatabase.getInstance().getReference("cart").child(idcart)
                         val data = mapOf<String, Any>(
-                            "tinhtrang" to "Đã đặt hàng",
-                            "diachi" to diachi,
-                            "sodienthoai" to sodienthoai.toInt()
+                            "tinhtrang" to "Đã gửi hàng"
 
                         )
                         dbref.updateChildren(data).addOnCompleteListener {
                             val mediaPlayer = MediaPlayer.create(applicationContext, R.raw.ting)
                             mediaPlayer.start()
-                            Toast.makeText(applicationContext, "Đặt hàng thành công", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, "Đặt gửi thành công", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

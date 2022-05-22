@@ -43,7 +43,7 @@ class SanPhamAdapter(private val menuList: ArrayList<SanPham>) : RecyclerView.Ad
     }
 
     public class MyViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView){
-        val image : ImageView = itemView.findViewById(R.id.imageuser)
+        val image : ImageView = itemView.findViewById(R.id.imageu)
         val text1 : TextView = itemView.findViewById(R.id.nameuser)
         val text2 : TextView = itemView.findViewById(R.id.emailuser)
 

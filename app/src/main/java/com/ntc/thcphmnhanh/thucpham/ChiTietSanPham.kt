@@ -75,7 +75,7 @@ class ChiTietSanPham : AppCompatActivity() {
 
             val user = Firebase.auth.currentUser
             val uid = user?.uid
-
+            val sodienthoai : Int = 84
             database = FirebaseDatabase.getInstance().getReference("cart")
             val length = 20
             getRandomString(length)
@@ -90,7 +90,8 @@ class ChiTietSanPham : AppCompatActivity() {
                 "linkanh" to linkanh,
                 "idsanpham" to id,
                 "idcart" to randomString,
-                "diachi" to ""
+                "diachi" to "",
+                "sodienthoai" to sodienthoai
             )
             database.child(randomString).updateChildren(data).addOnCompleteListener {
                 val mediaPlayer = MediaPlayer.create(applicationContext, R.raw.ting)
