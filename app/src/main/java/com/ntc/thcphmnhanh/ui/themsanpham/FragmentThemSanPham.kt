@@ -4,14 +4,19 @@ import android.R
 import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -90,10 +95,8 @@ class FragmentThemSanPham : Fragment() {
             }
             if (binding.thucpham.isChecked()){
                 danhsach = "thucpham"
-
             }else if(binding.thucannhanh.isChecked()){
                 danhsach = "thucannhanh"
-
             }
             val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
             val now = Date()
@@ -109,6 +112,7 @@ class FragmentThemSanPham : Fragment() {
             data["id"] = randomid!!
             data["loai"] = loai
             data["danhsach"] = danhsach!!
+            data["ngaythem"] = randomid
             uploadImage(randomid, progressDialog)
             db.collection("danhsach").document(randomid)
                 .set(data)
@@ -129,6 +133,7 @@ class FragmentThemSanPham : Fragment() {
 
         startActivityForResult(Intent.createChooser(intent, "Chọn ảnh"), PICK_IMAGE_REQUEST)
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK){
@@ -136,6 +141,7 @@ class FragmentThemSanPham : Fragment() {
             binding.hinhanh.setImageURI(imageUri)
         }
     }
+
     fun getValues(view: View) {
         Toast.makeText(mContext, "Spinner 1 " + binding.loaisp.selectedItem.toString(), Toast.LENGTH_LONG).show()
     }

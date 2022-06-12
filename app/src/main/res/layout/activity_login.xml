@@ -6,7 +6,10 @@
     android:layout_height="match_parent"
     android:padding="20dp"
     android:background="#f5fffa"
-    tools:context=".Login">
+    tools:context=".Login"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

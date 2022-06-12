@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.ktx.auth
@@ -18,7 +19,6 @@ import com.google.firebase.ktx.Firebase
 import com.ntc.thcphmnhanh.databinding.FragmentHomeBinding
 import com.ntc.thcphmnhanh.home.MenuAdapter
 import com.ntc.thcphmnhanh.home.MenuData
-import com.ntc.thcphmnhanh.thucpham.ListThucPham
 
 class HomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
@@ -63,9 +63,7 @@ class HomeFragment : Fragment() {
         EventChangeListener()
         menuAdapter.setOnItemClickListener(object : MenuAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                val intent = Intent(context, ListThucPham::class.java)
-                intent.putExtra("id", menuArrayList[position].id)
-                startActivity(intent)
+                findNavController().navigate(HomeFragmentDirections.actionNavHomeToNavList(menuArrayList[position].id.toString()))
             }
 
         })

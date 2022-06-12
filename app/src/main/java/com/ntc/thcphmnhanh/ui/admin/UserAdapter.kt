@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ntc.thcphmnhanh.R
-import com.ntc.thcphmnhanh.thucpham.ThucPham
 import com.ntc.thcphmnhanh.ui.admin.SanPham
 import com.ntc.thcphmnhanh.ui.admin.User
 import com.squareup.picasso.Picasso

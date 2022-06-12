@@ -40,14 +40,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/red"
-            app:layout_constraintStart_toEndOf="@id/giasp"
-            app:layout_constraintTop_toBottomOf="@id/tensp"
-            android:text=" VNĐ"
-            tools:ignore="MissingConstraints" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/txtsoluong"
             android:text="Số lượng : "
             app:layout_constraintTop_toBottomOf="@id/giasp"
@@ -86,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:id="@+id/xacnhan"
-            android:text="Đã gửi"
+            android:text="Chi tiết"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginRight="20dp"
             android:background="@drawable/botron_button"

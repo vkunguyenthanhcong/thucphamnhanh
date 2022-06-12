@@ -9,5 +9,6 @@ data class GioHang(
     var id : String ?= null,
     var tinhtrang : String ?= null,
     var idsanpham : String ?= null,
-    var mota : String ?= null
+    var mota : String ?= null,
+    var tgdathang : String ?= null
 )

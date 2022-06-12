@@ -1,19 +1,18 @@
 package com.ntc.thcphmnhanh.ui.cart
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
-import com.ntc.thcphmnhanh.XacNhanDonHang
 import com.ntc.thcphmnhanh.databinding.FragmentGioHangBinding
 import com.ntc.thcphmnhanh.home.GioHangAdapter
 import com.ntc.thcphmnhanh.ui.admin.GioHang
@@ -26,7 +25,6 @@ class GioHangFragment : Fragment() , GioHangAdapter.OnSPItemClickListener{
     private lateinit var cartArrayList : ArrayList<GioHang>
     private lateinit var cartAdapter: GioHangAdapter
     private lateinit var adapter : Any
-
 
     private val binding get() = _binding!!
         private var mContext: Context? = null
@@ -48,6 +46,9 @@ class GioHangFragment : Fragment() , GioHangAdapter.OnSPItemClickListener{
         val linearLayoutManager = LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
         recyclerView.layoutManager = linearLayoutManager
 
+        val dividerItemDecoration = DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL)
+        recyclerView.addItemDecoration(dividerItemDecoration)
+
         cartArrayList = arrayListOf<GioHang>()
         cartAdapter = GioHangAdapter(cartArrayList, this)
         recyclerView.adapter = GioHangAdapter(cartArrayList, this)
@@ -64,6 +65,7 @@ class GioHangFragment : Fragment() , GioHangAdapter.OnSPItemClickListener{
     }
 
     private fun EventChangeListener(){
+
         val user = Firebase.auth.currentUser
         val uid = user?.uid
         dbref =
@@ -71,37 +73,35 @@ class GioHangFragment : Fragment() , GioHangAdapter.OnSPItemClickListener{
         dbref.addValueEventListener(object : ValueEventListener{
 
             override fun onDataChange(snapshot: DataSnapshot) {
+                cartArrayList.clear()
                 recyclerView.visibility = View.GONE
-                if (snapshot.exists()){
-
+                if (snapshot.exists()){ 
                     for (userSnapshot in snapshot.children){
-
                         val user = userSnapshot.getValue(GioHang::class.java)
                         if (user != null) {
                             if (user.tinhtrang == "Cart" && user.id == uid){
                                 cartArrayList.add(user!!)
                             }
                         }
-
                     }
                     adapter
                     recyclerView.visibility = View.VISIBLE
                 }
-
             }
-
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
+
             }
 
 
         })
+
     }
 
     override fun onItemClick(item: GioHang, position: Int) {
-        val intent = Intent(mContext, XacNhanDonHang::class.java)
-        intent.putExtra("idcart", item.idcart)
-        startActivity(intent)
+        findNavController().navigate(GioHangFragmentDirections.actionNavCartToNavXacnhancart(item.idcart.toString()))
+
+
     }
 
 }

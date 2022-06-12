@@ -34,9 +34,9 @@
         tools:layout="@layout/fragment_gio_hang" />
     <fragment
         android:id="@+id/nav_donhang"
-        android:name="com.ntc.thcphmnhanh.ui.donhang.DonHangFragment"
+        android:name="com.ntc.thcphmnhanh.ui.donhang.DaNhanFragment"
         android:label="Đơn hàng"
-        tools:layout="@layout/fragment_don_hang" />
+        tools:layout="@layout/fragment_da_nhan" />
     <fragment
         android:id="@+id/nav_xacnhan"
         android:name="com.ntc.thcphmnhanh.ui.xacnhan.FragmentXacNhan"
@@ -52,4 +52,5 @@
         android:name="com.ntc.thcphmnhanh.ui.Logout.LogoutFragment"
         android:label="Đăng xuất"
         tools:layout="@layout/fragment_logout" />
+
 </navigation>

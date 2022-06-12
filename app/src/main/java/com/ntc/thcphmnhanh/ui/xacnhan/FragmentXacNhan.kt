@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.ktx.auth
@@ -49,6 +51,8 @@ class FragmentXacNhan : Fragment(), XacNhanAdapter.OnSPItemClickListener {
         recyclerView = binding.xacnhan
         val linearLayoutManager = LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
         recyclerView.layoutManager = linearLayoutManager
+        val dividerItemDecoration = DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL)
+        recyclerView.addItemDecoration(dividerItemDecoration)
 
         cartArrayList = arrayListOf<XacNhan>()
         cartAdapter = XacNhanAdapter(cartArrayList, this)
@@ -66,6 +70,7 @@ class FragmentXacNhan : Fragment(), XacNhanAdapter.OnSPItemClickListener {
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 recyclerView.visibility = View.GONE
+                cartArrayList.clear()
                 if (snapshot.exists()){
 
                     for (userSnapshot in snapshot.children){
@@ -93,7 +98,8 @@ class FragmentXacNhan : Fragment(), XacNhanAdapter.OnSPItemClickListener {
 
         })
     }
-    override fun onItemClick(item: XacNhan, position: Int) {
-
+    override fun onItemClick(itemView: View, item: XacNhan, position: Int) {
+            val idcart = item.idcart
+            findNavController().navigate(FragmentXacNhanDirections.actionNavXacnhanToNavVerify(idcart.toString()))
     }
 }

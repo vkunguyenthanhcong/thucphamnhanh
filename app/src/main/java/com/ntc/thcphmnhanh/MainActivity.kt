@@ -16,6 +16,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.*
 import com.google.firebase.ktx.Firebase
 import com.ntc.thcphmnhanh.databinding.ActivityMainBinding
+import com.ntc.thcphmnhanh.ui.cart.GioHangFragment
 import android.view.Menu as Menu
 
 class MainActivity : AppCompatActivity() {
@@ -60,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_admin, R.id.nav_cart, R.id.nav_donhang, R.id.xacnhan
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_admin, R.id.nav_cart, R.id.nav_donhang, R.id.nav_themsp, R.id.nav_xacnhan
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

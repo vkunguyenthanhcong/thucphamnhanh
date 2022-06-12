@@ -10,7 +10,7 @@
             android:title="Trang chủ" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_cart_list"
             android:title="@string/menu_gallery" />
         <item
             android:id="@+id/nav_slideshow"
@@ -18,7 +18,7 @@
             android:title="@string/menu_slideshow" />
         <item
             android:id="@+id/nav_admin"
-            android:icon="@drawable/ic_profile"
+            android:icon="@drawable/ic_manager"
             android:title="Admin Quản Lý" />
         <item
             android:id="@+id/nav_cart"
@@ -26,17 +26,16 @@
             android:title="Giỏ hàng" />
         <item
             android:id="@+id/nav_donhang"
-            android:icon="@drawable/ic_cart"
+            android:icon="@drawable/ic_paper"
             android:title="Đơn hàng" />
         <item
             android:id="@+id/nav_xacnhan"
-            android:icon="@drawable/ic_cart"
+            android:icon="@drawable/ic_cart_verified"
             android:title="Xác nhận đơn hàng" />
         <item
             android:id="@+id/nav_themsp"
-            android:icon="@drawable/ic_cart"
+            android:icon="@drawable/ic_add_cart"
             android:title="Thêm sản phẩm"/>
-
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_logout"

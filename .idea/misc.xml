@@ -12,8 +12,11 @@
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/drawable/button_pressed.xml" value="0.195" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/drawable/frame.xml" value="0.195" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/drawable/hinhtron_button.xml" value="0.3595" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/drawable/ic_add_cart.xml" value="0.2945" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/drawable/ic_camera.xml" value="0.3025" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/drawable/ic_cart.xml" value="0.195" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/drawable/ic_cart_list.xml" value="0.2945" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/drawable/ic_cart_verified.xml" value="0.2945" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/drawable/ic_cart_white.xml" value="0.195" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/drawable/ic_delete.xml" value="0.18" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/drawable/ic_home.xml" value="0.3025" />
@@ -29,7 +32,7 @@
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/activity_chi_tiet_san_pham.xml" value="0.18697916666666667" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/activity_list_thuc_pham.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/activity_main2.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/activity_reset_password.xml" value="0.1859375" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
@@ -40,17 +43,27 @@
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/activity_xac_nhan_don_hang.xml" value="0.19202898550724637" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/activity_xac_nhan_don_hang2.xml" value="0.5" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/app_bar_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/content_donhang.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/content_main.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_admin.xml" value="0.5" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_blank.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_change_information.xml" value="0.1859375" />
-        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_don_hang.xml" value="0.21897810218978103" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_content_donhang.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_da_nhan.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_da_nhan_don_hang.xml" value="0.3802083333333333" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_detail_cart.xml" value="0.33" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_detail_product.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_detail_verify.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_don_hang.xml" value="0.1" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_gallery.xml" value="0.33" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_gio_hang.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_list_product.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_logout.xml" value="0.1585144927536232" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_slideshow.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_them_san_pham.xml" value="0.33" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_xac_nhan.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_xac_nhan_da_nhan.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/fragment_xac_nhan_don_hang.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/nav_header_main.xml" value="0.33" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/layout/recyclemenu.xml" value="0.33" />
@@ -66,6 +79,7 @@
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/menu/main_activity2.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3025" />
         <entry key="..\:/Users/Hii/AndroidStudioProjects/ThucPhamNhanh/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.196" />
+        <entry key="..\:/Users/Hii/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Hii/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.184375" />
       </map>
     </option>

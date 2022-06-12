@@ -1,6 +1,5 @@
 package com.ntc.thcphmnhanh.home
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
@@ -8,20 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.database
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import com.ntc.thcphmnhanh.AdminXacNhanDonHang
-import com.ntc.thcphmnhanh.MainActivity
 import com.ntc.thcphmnhanh.R
-import com.ntc.thcphmnhanh.XacNhanDonHang
-import com.ntc.thcphmnhanh.ui.admin.GioHang
 import com.ntc.thcphmnhanh.ui.admin.XacNhan
 import com.squareup.picasso.Picasso
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class XacNhanAdapter(var cartList: ArrayList<XacNhan>, var clickListener: OnSPItemClickListener) : RecyclerView.Adapter<XacNhanAdapter.MyViewHolder>() {
@@ -58,25 +51,15 @@ class XacNhanAdapter(var cartList: ArrayList<XacNhan>, var clickListener: OnSPIt
         val lienhe : Button = itemView.findViewById(R.id.lienhe)
         fun initialize(item: XacNhan, action: OnSPItemClickListener){
             ten.text = item.ten
-            gia.text = item.gia.toString()
+            val COUNTRY : String = "VN"
+            val LANGUAGE : String =  "vi"
+            val numberFormat = NumberFormat.getCurrencyInstance(Locale(LANGUAGE, COUNTRY)).format(item.gia)
+            gia.text = numberFormat.toString()
             soluong.text = item.soluong.toString()
-            if (item.tinhtrang == "Đã đặt hàng"){
-                tinhtrang.setTextColor(Color.parseColor("#ffff00"))
-            }else if (item.tinhtrang == "Đã gửi hàng"){
-                xacnhan.visibility = View.GONE
-                tinhtrang.setText("Đang giao hàng")
-                tinhtrang.setTextColor(Color.parseColor("#ffff00"))
-            } else if (item.tinhtrang == "Đã nhận hàng"){
-                tinhtrang.setTextColor(Color.parseColor("#00ff00"))
-
-            }else{
-                tinhtrang.setTextColor(Color.parseColor("#ff0000"))
-            }
+            tinhtrang.setText(item.tinhtrang)
             Picasso.get().load(item.linkanh).placeholder(R.drawable.logo).error(R.drawable.logo).into(image)
             xacnhan.setOnClickListener {
-                val intent = Intent(itemView.context, AdminXacNhanDonHang::class.java)
-                intent.putExtra("idcart", item.idcart)
-                itemView.context.startActivity(intent)
+                action.onItemClick(itemView,item, adapterPosition)
             }
             lienhe.setOnClickListener {
                 val dialIntent = Intent(Intent.ACTION_DIAL)
@@ -87,7 +70,7 @@ class XacNhanAdapter(var cartList: ArrayList<XacNhan>, var clickListener: OnSPIt
     }
 
     interface OnSPItemClickListener{
-        fun onItemClick(item : XacNhan, position: Int)
+        fun onItemClick(itemView: View, item : XacNhan, position: Int)
     }
 
 

@@ -13,6 +13,9 @@ import com.ntc.thcphmnhanh.ui.admin.DonHang
 import com.ntc.thcphmnhanh.ui.admin.GioHang
 import com.ntc.thcphmnhanh.ui.donhang.DonHangFragment
 import com.squareup.picasso.Picasso
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class DonHangAdapter(var cartList: ArrayList<DonHang>, var clickListener: DonHangAdapter.OnSPItemClickListener) : RecyclerView.Adapter<DonHangAdapter.MyViewHolder>() {
@@ -31,7 +34,6 @@ class DonHangAdapter(var cartList: ArrayList<DonHang>, var clickListener: DonHan
     }
 
     override fun getItemCount(): Int {
-
         return cartList.size
     }
 
@@ -45,7 +47,10 @@ class DonHangAdapter(var cartList: ArrayList<DonHang>, var clickListener: DonHan
         val lienhe = itemView.findViewById<Button>(R.id.lienhe)
         fun initialize(item: DonHang, action: DonHangAdapter.OnSPItemClickListener){
             tensp.text = item.ten
-            giasp.text = item.gia.toString()
+            val COUNTRY : String = "VN"
+            val LANGUAGE : String =  "vi"
+            val numberFormat = NumberFormat.getCurrencyInstance(Locale(LANGUAGE, COUNTRY)).format(item.gia)
+            giasp.text = numberFormat.toString()
             soluong.text = item.soluong.toString()
             tinhtrang.text = item.tinhtrang
             if (item.tinhtrang == "Đã đặt hàng"){
@@ -54,15 +59,11 @@ class DonHangAdapter(var cartList: ArrayList<DonHang>, var clickListener: DonHan
                 tinhtrang.setTextColor(Color.parseColor("#ffff00"))
             } else if (item.tinhtrang == "Đã nhận hàng"){
                 tinhtrang.setTextColor(Color.parseColor("#00ff00"))
-                xacnhan.visibility = View.GONE
-            }else{
-                tinhtrang.setTextColor(Color.parseColor("#ff0000"))
             }
             Picasso.get().load(item.linkanh).placeholder(R.drawable.logo).error(R.drawable.logo).into(image)
             xacnhan.setOnClickListener {
                 action.onItemClick(itemView,item, adapterPosition)
             }
-            
             lienhe.setOnClickListener {
                 val dialIntent = Intent(Intent.ACTION_DIAL)
                 dialIntent.data = Uri.parse("tel:" + "${item.sodienthoai}")
@@ -73,5 +74,6 @@ class DonHangAdapter(var cartList: ArrayList<DonHang>, var clickListener: DonHan
     }
     interface OnSPItemClickListener{
         fun onItemClick(itemView: View, item : DonHang, position: Int)
+
     }
 }

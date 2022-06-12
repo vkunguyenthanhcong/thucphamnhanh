@@ -9,14 +9,85 @@
         android:id="@+id/nav_home"
         android:name="com.ntc.thcphmnhanh.ui.home.HomeFragment"
         android:label="Trang chủ"
-        tools:layout="@layout/fragment_home" />
-
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_list"
+            app:destination="@id/nav_list"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_list"
+        android:name="com.ntc.thcphmnhanh.ui.home.ListProduct"
+        android:label="Trang chủ"
+        tools:layout="@layout/fragment_list_product" >
+        <action
+            android:id="@+id/action_nav_list_to_nav_home"
+            app:destination="@id/nav_home"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/nav_home"
+            app:popUpToInclusive="true"
+            />
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_nav_list_to_nav_detail"
+            app:destination="@id/nav_detail"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.ntc.thcphmnhanh.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_nav_gallery_to_nav_detail"
+            app:destination="@id/nav_detail"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_detail"
+        android:name="com.ntc.thcphmnhanh.thucpham.DetailProduct"
+        android:label="Chi tiết sản phẩm"
+        tools:layout="@layout/fragment_detail_product" >
+        <action
+            android:id="@+id/action_nav_detail_to_nav_gallery"
+            app:destination="@id/nav_gallery"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/nav_gallery"
+            app:popUpToInclusive="true"
+            />
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_nav_detail_to_nav_list"
+            app:destination="@id/nav_list"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/nav_list"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.ntc.thcphmnhanh.ui.slideshow.SlideshowFragment"
@@ -31,17 +102,96 @@
         android:id="@+id/nav_cart"
         android:name="com.ntc.thcphmnhanh.ui.cart.GioHangFragment"
         android:label="Giỏ hàng"
-        tools:layout="@layout/fragment_gio_hang" />
+        tools:layout="@layout/fragment_gio_hang" >
+        <action
+            android:id="@+id/action_nav_cart_to_nav_xacnhancart"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/nav_xacnhancart" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_xacnhancart"
+        android:name="com.ntc.thcphmnhanh.ui.cart.DetailCart"
+        android:label="Chi tiết giỏ hàng"
+        tools:layout="@layout/fragment_detail_cart" >
+        <action
+            android:id="@+id/action_nav_xacnhancart_to_nav_cart"
+            app:destination="@id/nav_cart"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/nav_list"
+            app:popUpToInclusive="true"/>
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/nav_donhang"
         android:name="com.ntc.thcphmnhanh.ui.donhang.DonHangFragment"
         android:label="Đơn hàng"
-        tools:layout="@layout/fragment_don_hang" />
+        tools:layout="@layout/fragment_don_hang" >
+        <action
+            android:id="@+id/action_nav_donhang_to_nav_thongtindonhang"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/nav_thongtindonhang" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_thongtindonhang"
+        android:name="com.ntc.thcphmnhanh.ui.donhang.DaNhanDonHang"
+        android:label="Đơn hàng"
+        tools:layout="@layout/fragment_da_nhan_don_hang" >
+        <action
+            android:id="@+id/action_nav_thongtindonhang_to_nav_donhang"
+            app:destination="@id/nav_donhang"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/nav_donhang"
+            app:popUpToInclusive="true"
+            />
+        <argument
+            android:name="idcart"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/nav_xacnhan"
         android:name="com.ntc.thcphmnhanh.ui.xacnhan.FragmentXacNhan"
         android:label="Xác nhận đơn hàng"
-        tools:layout="@layout/fragment_xac_nhan" />
+        tools:layout="@layout/fragment_xac_nhan" >
+        <action
+            android:id="@+id/action_nav_xacnhan_to_nav_verify"
+            app:destination="@id/nav_verify"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+    <fragment
+        android:id="@+id/nav_verify"
+        android:name="com.ntc.thcphmnhanh.ui.xacnhan.DetailVerify"
+        android:label="Xác nhận đơn hàng"
+        tools:layout="@layout/fragment_detail_verify" >
+        <action
+            android:id="@+id/action_nav_verify_to_nav_xacnhan"
+            app:destination="@id/nav_xacnhan"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/nav_xacnhan"
+            app:popUpToInclusive="true"/>
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/nav_themsp"
         android:name="com.ntc.thcphmnhanh.ui.themsanpham.FragmentThemSanPham"
@@ -52,4 +202,5 @@
         android:name="com.ntc.thcphmnhanh.ui.Logout.LogoutFragment"
         android:label="Đăng xuất"
         tools:layout="@layout/fragment_logout" />
+
 </navigation>

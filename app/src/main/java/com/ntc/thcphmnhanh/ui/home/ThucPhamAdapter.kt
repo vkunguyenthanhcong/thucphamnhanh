@@ -1,4 +1,4 @@
-package com.ntc.thcphmnhanh.home
+package com.ntc.thcphmnhanh.ui.home
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ntc.thcphmnhanh.R
-import com.ntc.thcphmnhanh.thucpham.ThucPham
 import com.squareup.picasso.Picasso
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
-class ThucPhamAdapter(private val menuList: ArrayList<ThucPham>) : RecyclerView.Adapter<ThucPhamAdapter.MyViewHolder>(){
+class ThucPhamAdapter(private val menuList: ArrayList<com.ntc.thcphmnhanh.ui.home.ThucPham>) : RecyclerView.Adapter<ThucPhamAdapter.MyViewHolder>(){
 
     private lateinit var mListener : onItemClickListener
 
@@ -28,13 +30,17 @@ class ThucPhamAdapter(private val menuList: ArrayList<ThucPham>) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: ThucPhamAdapter.MyViewHolder, position: Int) {
-        val menu : ThucPham = menuList[position]
+        val menu : com.ntc.thcphmnhanh.ui.home.ThucPham = menuList[position]
         holder.text.text = menu.ten
-        holder.text2.text = menu.gia
+
         holder.text3.text = menu.mota
         var imageurl = menu.linkanh
         var imageview = holder.image
-
+        val COUNTRY : String = "VN"
+        val LANGUAGE : String =  "vi"
+        val gia = menu.gia
+        val numberFormat = NumberFormat.getCurrencyInstance(Locale(LANGUAGE, COUNTRY)).format(gia.toString().toInt())
+        holder.text2.text = numberFormat
         Picasso.get().load(imageurl).placeholder(R.drawable.loading).error(R.drawable.loading).fit().into(imageview)
     }
 

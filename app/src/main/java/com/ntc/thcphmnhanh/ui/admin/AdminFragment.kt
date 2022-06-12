@@ -23,10 +23,7 @@ import com.ntc.thcphmnhanh.R
 import com.ntc.thcphmnhanh.databinding.FragmentAdminBinding
 import com.ntc.thcphmnhanh.databinding.FragmentHomeBinding
 import com.ntc.thcphmnhanh.home.*
-import com.ntc.thcphmnhanh.thucpham.ChiTietSanPham
 import com.ntc.thcphmnhanh.thucpham.FastFood
-import com.ntc.thcphmnhanh.thucpham.ListThucPham
-import com.ntc.thcphmnhanh.thucpham.ThucPham
 import com.ntc.thcphmnhanh.ui.gallery.nThucPham
 import com.squareup.picasso.Picasso
 

@@ -22,18 +22,14 @@
         <activity
             android:name=".ResetPassword"
             android:exported="false" />
-        <activity
-            android:name=".VerifyActivity"
-            android:exported="false" />
+
         <activity
             android:name=".thucpham.ChiTietSanPham"
             android:exported="false" />
         <activity
             android:name=".thucpham.ListThucPham"
             android:exported="false" />
-        <activity
-            android:name=".Thaydoithongtin"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="false"

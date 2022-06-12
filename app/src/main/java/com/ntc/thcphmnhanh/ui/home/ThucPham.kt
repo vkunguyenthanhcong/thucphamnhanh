@@ -1,4 +1,4 @@
-package com.ntc.thcphmnhanh.thucpham
+package com.ntc.thcphmnhanh.ui.home
 
 data class ThucPham(
     var id: String ?= null,

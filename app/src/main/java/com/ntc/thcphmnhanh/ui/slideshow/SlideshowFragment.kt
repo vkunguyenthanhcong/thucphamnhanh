@@ -54,8 +54,6 @@ class SlideshowFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
         _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -217,7 +215,7 @@ class SlideshowFragment : Fragment() {
             }?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val downloadUri = task.result
-                    Toast.makeText(mContext, "Thay đổi avatar thành công", Toast.LENGTH_SHORT).show()
+
                     val user = Firebase.auth.currentUser
 
                     val profileUpdates = userProfileChangeRequest {
@@ -227,8 +225,7 @@ class SlideshowFragment : Fragment() {
                     user!!.updateProfile(profileUpdates)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                val intent = Intent(mContext, MainActivity::class.java)
-                                startActivity(intent)
+                                Toast.makeText(mContext, "Thay đổi avatar thành công", Toast.LENGTH_SHORT).show()
                             }
                         }
                 } else {

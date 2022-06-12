@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#e6ffee"
+    android:id="@+id/fragment1"
     tools:context=".ui.donhang.DonHangFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -15,5 +16,4 @@
         android:layout_marginTop="10dp"
         android:elevation="5dp"
         />
-
 </FrameLayout>

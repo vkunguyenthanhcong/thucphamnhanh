@@ -7,19 +7,17 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.*
 import com.ntc.thcphmnhanh.databinding.FragmentGalleryBinding
 import com.ntc.thcphmnhanh.home.FastFoodAdapter
-import com.ntc.thcphmnhanh.home.ThucPhamAdapter
 import com.ntc.thcphmnhanh.home.nThucPhamAdapter
-import com.ntc.thcphmnhanh.thucpham.ChiTietSanPham
 import com.ntc.thcphmnhanh.thucpham.FastFood
-import com.ntc.thcphmnhanh.thucpham.ListThucPham
-import com.ntc.thcphmnhanh.thucpham.ThucPham
 
 class GalleryFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
@@ -46,9 +44,6 @@ class GalleryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
-
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -66,9 +61,8 @@ class GalleryFragment : Fragment() {
         nEventChangeListener()
         TPAdapter.setOnItemClickListener(object : nThucPhamAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                val intent = Intent(context, ChiTietSanPham::class.java)
-                intent.putExtra("id", TPArrayList[position].id)
-                startActivity(intent)
+                findNavController().navigate(GalleryFragmentDirections.actionNavGalleryToNavDetail(TPArrayList[position].id.toString()))
+
             }
 
         })
@@ -87,9 +81,8 @@ class GalleryFragment : Fragment() {
         EventChangeListener()
         FFAdapter.setOnItemClickListener(object : FastFoodAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                val intent = Intent(context, ChiTietSanPham::class.java)
-                intent.putExtra("id", FFArrayList[position].id)
-                startActivity(intent)
+               findNavController().navigate(GalleryFragmentDirections.actionNavGalleryToNavDetail(TPArrayList[position].id.toString()))
+
             }
 
         })

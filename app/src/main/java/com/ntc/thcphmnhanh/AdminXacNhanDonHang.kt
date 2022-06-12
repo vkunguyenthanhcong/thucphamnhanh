@@ -25,6 +25,8 @@ import com.ntc.thcphmnhanh.home.GioHangAdapter
 import com.ntc.thcphmnhanh.ui.admin.GioHang
 import com.ntc.thcphmnhanh.ui.cart.GioHangFragment
 import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlinx.coroutines.delay as delay1
 
 class AdminXacNhanDonHang : AppCompatActivity() {
@@ -43,15 +45,21 @@ class AdminXacNhanDonHang : AppCompatActivity() {
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()){
-                    val linkanh = snapshot.child("linkanh").value.toString()
-                    Picasso.get().load(linkanh).placeholder(R.drawable.logo).into(binding.image)
-                    val tensp = snapshot.child("ten").value.toString()
-                    binding.tensp.setText(tensp)
-                    val giasp = snapshot.child("gia").value.toString()
-                    binding.giasp.setText(giasp)
-                    val soluong = snapshot.child("soluong").value.toString()
-                    binding.soluong.setText(soluong)
-                    val tongtien : Int = soluong.toInt() * giasp.toInt()
+                    //current time
+                    val sdf = SimpleDateFormat("dd/MM/yyyy kk:mm:ss")
+                    val currentDate = sdf.format(Date())
+
+                    Picasso.get().load(snapshot.child("linkanh").value.toString()).placeholder(R.drawable.logo).into(binding.image)
+
+                    binding.tensp.setText(snapshot.child("ten").value.toString())
+
+                    binding.giasp.setText(snapshot.child("gia").value.toString())
+
+                    binding.soluong.setText(snapshot.child("soluong").value.toString())
+
+                    binding.tgdathang.setText(snapshot.child("ngaydathang").value.toString())
+
+                    val tongtien : Int = binding.soluong.text.toString().toInt() * binding.giasp.text.toString().toInt()
                     val tinhtrang  = snapshot.child("tinhtrang").value.toString()
                     if (tinhtrang == "Cart"){
                         binding.tinhtrang.setText("Đơn hàng mới")
@@ -84,7 +92,7 @@ class AdminXacNhanDonHang : AppCompatActivity() {
                             mediaPlayer.start()
                             Toast.makeText(applicationContext, "Hủy thành công", Toast.LENGTH_SHORT).show()
                             Handler().postDelayed({
-                                val intent = Intent(applicationContext, GioHangFragment::class.java)
+                                val intent = Intent(applicationContext, MainActivity::class.java)
                                 startActivity(intent)
                             }, 1000)
 
@@ -94,8 +102,8 @@ class AdminXacNhanDonHang : AppCompatActivity() {
                     binding.guihang.setOnClickListener {
                         dbref = FirebaseDatabase.getInstance().getReference("cart").child(idcart)
                         val data = mapOf<String, Any>(
-                            "tinhtrang" to "Đã gửi hàng"
-
+                            "tinhtrang" to "Đã gửi hàng",
+                            "ngaygiaohang" to currentDate
                         )
                         dbref.updateChildren(data).addOnCompleteListener {
                             val mediaPlayer = MediaPlayer.create(applicationContext, R.raw.ting)
