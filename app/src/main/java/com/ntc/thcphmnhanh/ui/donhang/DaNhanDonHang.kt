@@ -105,7 +105,9 @@ class DaNhanDonHang : Fragment() {
                     giasp.setText(numberFormat.toString())
                     //Số lượng và tổng tiền
                     soluong.setText(snapshot.child("soluong").value.toString())
-                    view.findViewById<TextView>(R.id.tongtien).setText(NumberFormat.getCurrencyInstance(Locale(LANGUAGE, COUNTRY)).format(snapshot.child("tongtien").value))
+
+                    val tongmoney = NumberFormat.getCurrencyInstance(Locale(LANGUAGE, COUNTRY)).format(snapshot.child("tongtien").value)
+                    view.findViewById<TextView>(R.id.tongtien).setText(tongmoney.toString())
                     //thời gian đặt hàng và giao hàng
                     tgdathang.setText(snapshot.child("ngaydathang").value.toString())
                     tgguihang.setText(snapshot.child("ngaygiaohang").value.toString())

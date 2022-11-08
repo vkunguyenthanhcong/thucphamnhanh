@@ -1,21 +1,17 @@
 package com.ntc.thcphmnhanh.ui.admin
 
-import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.ntc.thcphmnhanh.R
-import com.ntc.thcphmnhanh.ui.admin.XacNhan
 import com.squareup.picasso.Picasso
-import java.text.NumberFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
 
-class UserAdapter(var cartList: ArrayList<UserData>, var clickListener: OnSPItemClickListener) : RecyclerView.Adapter<UserAdapter.MyViewHolder>() {
+class ProductAdapter(var cartList: ArrayList<ProductData>, var clickListener: OnSPItemClickListener) : RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
@@ -34,7 +30,6 @@ class UserAdapter(var cartList: ArrayList<UserData>, var clickListener: OnSPItem
     }
 
     override fun getItemCount(): Int {
-
         return cartList.size
     }
 
@@ -44,11 +39,11 @@ class UserAdapter(var cartList: ArrayList<UserData>, var clickListener: OnSPItem
         val email : TextView = itemView.findViewById(R.id.describe)
         val image : ImageView = itemView.findViewById(R.id.image)
 
-        fun initialize(item: UserData, action: OnSPItemClickListener){
-            ten.text = item.hoten
-            email.text = item.email
+        fun initialize(item: ProductData, action: OnSPItemClickListener){
+            ten.text = item.ten
+            email.text = item.gia
 
-            Picasso.get().load(item.link).placeholder(R.drawable.logo).error(R.drawable.logo).into(image)
+            Picasso.get().load(item.linkanh).placeholder(R.drawable.logo).error(R.drawable.logo).into(image)
             itemView.findViewById<ImageButton>(R.id.btnview).setOnClickListener {
                 action.onItemClick(itemView,item, adapterPosition)
             }
@@ -57,7 +52,7 @@ class UserAdapter(var cartList: ArrayList<UserData>, var clickListener: OnSPItem
     }
 
     interface OnSPItemClickListener{
-        fun onItemClick(itemView: View, item : UserData, position: Int)
+        fun onItemClick(itemView: View, item : ProductData, position: Int)
     }
 
 

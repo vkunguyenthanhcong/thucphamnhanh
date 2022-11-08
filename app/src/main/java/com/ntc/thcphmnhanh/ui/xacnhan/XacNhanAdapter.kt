@@ -1,14 +1,12 @@
-package com.ntc.thcphmnhanh.home
+package com.ntc.thcphmnhanh.ui.xacnhan
 
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
-import com.ntc.thcphmnhanh.AdminXacNhanDonHang
 import com.ntc.thcphmnhanh.R
 import com.ntc.thcphmnhanh.ui.admin.XacNhan
 import com.squareup.picasso.Picasso

@@ -67,7 +67,7 @@ class Login : AppCompatActivity() {
             data["gioitinh"] = ""
             data["id"] = uid
             data["permission"] = "user"
-            data["link"] =  ""
+            data["link"] =  "http://www.nuockhoangtinhkhiet24h.com/upload/img/inuser/Avatar-Facebook-tr%E1%BA%AFng.jpg"
             data["email"] = email
 
             db.collection("users").document(uid!!)

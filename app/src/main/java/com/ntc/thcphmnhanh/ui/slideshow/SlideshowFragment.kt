@@ -37,7 +37,6 @@ class SlideshowFragment : Fragment() {
     private var filePath: Uri? = null
     private var firebaseStore: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
-
     private val imageView: CircleImageView ? = null
     lateinit var nam: CheckBox
     lateinit var nu: CheckBox
@@ -197,6 +196,7 @@ class SlideshowFragment : Fragment() {
         }
     }
     private fun uploadImage(){
+        val db = FirebaseFirestore.getInstance()
         val progressDialog = ProgressDialog(mContext)
         progressDialog.setTitle("Thực phẩm nhanh")
         progressDialog.setMessage("Đang tải lên hình ảnh, vui lòng đợi")
@@ -220,12 +220,19 @@ class SlideshowFragment : Fragment() {
 
                     val profileUpdates = userProfileChangeRequest {
                         photoUri = Uri.parse(downloadUri.toString())
+                        val data: MutableMap<String, Any> = HashMap()
+                        data["link"] =  downloadUri.toString()
+                        if (user != null) {
+                            db.collection("users").document(user.uid)
+                                .set(data, SetOptions.merge())
+                        }
                     }
 
                     user!!.updateProfile(profileUpdates)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 Toast.makeText(mContext, "Thay đổi avatar thành công", Toast.LENGTH_SHORT).show()
+                                progressDialog.hide()
                             }
                         }
                 } else {

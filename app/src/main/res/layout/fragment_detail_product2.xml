@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ui.admin.DetailProduct">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="700px"
+        android:id="@+id/image"
+        android:src="@drawable/logo"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tensp"
+                    android:text="Tên sản phẩm"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    app:layout_constraintStart_toEndOf="@+id/btntensp"
+                    android:layout_height="wrap_content"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:id="@+id/btntensp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_edit_pencil"
+                    android:background="@color/white"/>
+                <EditText
+                    app:layout_constraintTop_toBottomOf="@+id/btntensp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Thay đổi tên sản phẩm"
+                    android:textColor="@color/black"
+                    android:id="@+id/edttensp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/giasp"
+                    android:text="10000"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    app:layout_constraintStart_toEndOf="@+id/btngiasp"
+                    android:layout_height="wrap_content"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:id="@+id/btngiasp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_edit_pencil"
+                    android:background="@color/white"/>
+                <EditText
+                    app:layout_constraintTop_toBottomOf="@+id/btngiasp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Thay đổi giá sản phẩm"
+                    android:textColor="@color/black"
+                    android:inputType="number"
+                    android:id="@+id/edtgiasp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/motasp"
+                    android:text="Mô tả"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    app:layout_constraintStart_toEndOf="@+id/btnmotasp"
+                    android:layout_height="wrap_content"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:id="@+id/btnmotasp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_edit_pencil"
+                    android:background="@color/white"/>
+                <EditText
+                    app:layout_constraintTop_toBottomOf="@+id/btnmotasp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Thay đổi mô tả sản phẩm"
+                    android:textColor="@color/black"
+                    android:inputType="textMultiLine"
+                    android:gravity="top|left"
+                    android:scrollbars="vertical"
+                    android:id="@+id/edtmotasp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/save"
+                android:layout_marginTop="100dp"
+                android:layout_gravity="center"
+                android:text="Lưu thông tin"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xóa sản phẩm"
+                android:layout_gravity="center"
+                android:id="@+id/xoa"/>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

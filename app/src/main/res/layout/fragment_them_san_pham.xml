@@ -68,19 +68,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/khung_edittext_1"
+                android:background="@drawable/khung_edittext"
                 android:hint="Mô tả"
+                android:gravity="top|left"
                 android:inputType="textMultiLine"
-                android:lines="8"
-                android:maxLines="10"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:minLines="6"
                 android:scrollbars="vertical"
                 app:layout_constraintTop_toBottomOf="@id/txtmota"
                 tools:ignore="MissingConstraints"
-                android:elevation="5dp"
-                tools:layout_editor_absoluteX="0dp" />
+                android:elevation="5dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -153,6 +151,7 @@
                     android:spinnerMode="dropdown"
                     app:layout_constraintTop_toBottomOf="@id/txtloaisp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginBottom="50dp"
                     android:layout_height="wrap_content"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <Button
@@ -161,6 +160,7 @@
                 android:id="@+id/submit"
                 android:textAllCaps="false"
                 android:text="Thêm Sản Phẩm"
+                android:layout_marginTop="50dp"
                 app:layout_constraintTop_toBottomOf="@id/main3"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:background="@drawable/botron_button"/>

@@ -69,7 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     tools:ignore="MissingConstraints"
-                    android:text="Xóa sản phẩm"
+                    android:text="Hủy đơn hàng"
                     android:id="@+id/xoasp"
                     android:layout_marginTop="10dp"
                     android:drawableLeft="@drawable/ic_delete"
@@ -174,6 +174,25 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="Thời gian nhận hàng"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="13/09/2002"
+                        android:gravity="right"
+                        android:id="@+id/tgnhanhang"
+                        android:textColor="@color/black"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Tổng tiền"
                         android:textStyle="bold"
                         android:textColor="@color/black"/>
@@ -182,7 +201,7 @@
                         android:layout_height="wrap_content"
                         android:text="10000"
                         android:gravity="right"
-                        android:id="@+id/tongtien"
+                        android:id="@+id/tonggiatien"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         />
@@ -236,19 +255,18 @@
                 android:background="@color/white"
                 android:layout_marginTop="50dp"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="Xác nhận đã nhận hàng"
+                    android:text="Xác nhận đã giao đơn hàng"
                     android:textColor="@color/black" />
 
                 <Button
                     android:id="@+id/xacnhan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="120dp"
+                    android:layout_marginLeft="80dp"
                     android:text="Xác nhận" />
             </LinearLayout>
         </LinearLayout>

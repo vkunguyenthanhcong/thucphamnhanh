@@ -22,7 +22,6 @@ import com.ntc.thcphmnhanh.R
 import com.ntc.thcphmnhanh.databinding.FragmentSlideshowBinding
 import com.ntc.thcphmnhanh.databinding.FragmentXacNhanBinding
 import com.ntc.thcphmnhanh.home.DonHangAdapter
-import com.ntc.thcphmnhanh.home.XacNhanAdapter
 import com.ntc.thcphmnhanh.ui.admin.DonHang
 import com.ntc.thcphmnhanh.ui.admin.XacNhan
 
@@ -77,11 +76,7 @@ class FragmentXacNhan : Fragment(), XacNhanAdapter.OnSPItemClickListener {
 
                         val user = userSnapshot.getValue(XacNhan::class.java)
                         if (user != null) {
-
-
                                 cartArrayList.add(user!!)
-
-
                         }
 
                     }
